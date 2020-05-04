@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,14 @@
 		70B57DD1245C2728005DA838 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70B57DD0245C2728005DA838 /* Preview Assets.xcassets */; };
 		70B57DD4245C2728005DA838 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70B57DD2245C2728005DA838 /* Main.storyboard */; };
 		70B57DE0245C2728005DA838 /* BasicBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B57DDF245C2728005DA838 /* BasicBoxTests.swift */; };
+		70B57DF9245C637C005DA838 /* Trader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B57DF8245C637B005DA838 /* Trader.swift */; };
+		70B57DFD245C68D2005DA838 /* TraderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B57DFC245C68D2005DA838 /* TraderTests.swift */; };
+		70B57E01245C7D35005DA838 /* TickCacheXPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B57E00245C7D35005DA838 /* TickCacheXPC.swift */; };
+		70B57E03245C95A0005DA838 /* TickCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B57E02245C95A0005DA838 /* TickCacheTests.swift */; };
+		70C3E749245E581600E958EE /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C3E744245E581600E958EE /* Order.swift */; };
+		70C3E74A245E581600E958EE /* Pricing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C3E745245E581600E958EE /* Pricing.swift */; };
+		70C3E74D245E581600E958EE /* Trade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C3E748245E581600E958EE /* Trade.swift */; };
+		70C3E74F245E589600E958EE /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C3E74E245E589600E958EE /* Account.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +45,15 @@
 		70B57DDB245C2728005DA838 /* BasicBoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BasicBoxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		70B57DDF245C2728005DA838 /* BasicBoxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicBoxTests.swift; sourceTree = "<group>"; };
 		70B57DE1245C2728005DA838 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70B57DF7245C631D005DA838 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		70B57DF8245C637B005DA838 /* Trader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trader.swift; sourceTree = "<group>"; };
+		70B57DFC245C68D2005DA838 /* TraderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraderTests.swift; sourceTree = "<group>"; };
+		70B57E00245C7D35005DA838 /* TickCacheXPC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickCacheXPC.swift; sourceTree = "<group>"; };
+		70B57E02245C95A0005DA838 /* TickCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickCacheTests.swift; sourceTree = "<group>"; };
+		70C3E744245E581600E958EE /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Order.swift; path = BasicBox/Models/Order.swift; sourceTree = SOURCE_ROOT; };
+		70C3E745245E581600E958EE /* Pricing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pricing.swift; path = BasicBox/Models/Pricing.swift; sourceTree = SOURCE_ROOT; };
+		70C3E748245E581600E958EE /* Trade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Trade.swift; path = BasicBox/Models/Trade.swift; sourceTree = SOURCE_ROOT; };
+		70C3E74E245E589600E958EE /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = Models/Account.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +95,8 @@
 		70B57DC8245C2726005DA838 /* BasicBox */ = {
 			isa = PBXGroup;
 			children = (
+				70B57DF6245C630A005DA838 /* Trading */,
+				70B57DEF245C62CA005DA838 /* Models */,
 				70B57DC9245C2726005DA838 /* AppDelegate.swift */,
 				70B57DCB245C2726005DA838 /* ContentView.swift */,
 				70B57DCD245C2728005DA838 /* Assets.xcassets */,
@@ -101,9 +120,33 @@
 			isa = PBXGroup;
 			children = (
 				70B57DDF245C2728005DA838 /* BasicBoxTests.swift */,
+				70B57E02245C95A0005DA838 /* TickCacheTests.swift */,
+				70B57DFC245C68D2005DA838 /* TraderTests.swift */,
 				70B57DE1245C2728005DA838 /* Info.plist */,
 			);
 			path = BasicBoxTests;
+			sourceTree = "<group>";
+		};
+		70B57DEF245C62CA005DA838 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				70C3E744245E581600E958EE /* Order.swift */,
+				70C3E74E245E589600E958EE /* Account.swift */,
+				70C3E745245E581600E958EE /* Pricing.swift */,
+				70C3E748245E581600E958EE /* Trade.swift */,
+			);
+			name = Models;
+			path = BasicBox;
+			sourceTree = SOURCE_ROOT;
+		};
+		70B57DF6245C630A005DA838 /* Trading */ = {
+			isa = PBXGroup;
+			children = (
+				70B57DF7245C631D005DA838 /* AccountManager.swift */,
+				70B57DF8245C637B005DA838 /* Trader.swift */,
+				70B57E00245C7D35005DA838 /* TickCacheXPC.swift */,
+			);
+			path = Trading;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,7 +207,7 @@
 				};
 			};
 			buildConfigurationList = 70B57DC1245C2726005DA838 /* Build configuration list for PBXProject "BasicBox" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 11.4";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -207,8 +250,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70B57DF9245C637C005DA838 /* Trader.swift in Sources */,
+				70C3E749245E581600E958EE /* Order.swift in Sources */,
+				70C3E74A245E581600E958EE /* Pricing.swift in Sources */,
 				70B57DCC245C2726005DA838 /* ContentView.swift in Sources */,
+				70C3E74D245E581600E958EE /* Trade.swift in Sources */,
+				70C3E74F245E589600E958EE /* Account.swift in Sources */,
 				70B57DCA245C2726005DA838 /* AppDelegate.swift in Sources */,
+				70B57E01245C7D35005DA838 /* TickCacheXPC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +266,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				70B57DE0245C2728005DA838 /* BasicBoxTests.swift in Sources */,
+				70B57DFD245C68D2005DA838 /* TraderTests.swift in Sources */,
+				70B57E03245C95A0005DA838 /* TickCacheTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,8 +20,7 @@ class BasicBoxTests: XCTestCase {
     }
 
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        _ = Trader(account: Account(hedgingEnabled: true))
     }
 
     func testPerformanceExample() throws {
