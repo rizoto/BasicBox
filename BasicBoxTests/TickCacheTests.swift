@@ -11,11 +11,11 @@ import Combine
 @testable import BasicBox
 
 class TickCacheTests: XCTestCase {
-    // kinda integration test, we don't knwow of CacheXPC is running
+    // kinda integration test, we don't know if CacheXPC is running
     // should be in integration tests 
     func testCache() throws {
         let expectation = XCTestExpectation(description: self.debugDescription)
-        let cache = TickCache()
+        let cache = TickCache().eraseToAnyPublisher()
         let cancellable = cache.sink(receiveCompletion: { e in
             switch e {
             case .finished:
@@ -24,12 +24,11 @@ class TickCacheTests: XCTestCase {
                 expectation.isInverted = true
             }
         }) { (price) in
-            print(price)
             expectation.fulfill()
         }
-        sleep(1)
+        usleep(1)
         cancellable.cancel()
-        wait(for: [expectation], timeout: 1.5)
+        wait(for: [expectation], timeout: 0.5)
         XCTAssertNotNil(cancellable)
     }
 

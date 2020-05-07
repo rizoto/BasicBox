@@ -20,7 +20,7 @@ class TraderTests: XCTestCase {
 //    }
 
     func testTrader() throws {
-        var trader = Trader(account: Account(hedgingEnabled: true))
+        let trader = Trader(account: Account(hedgingEnabled: true))
         _ = trader.createMarketOrderRequest(instrument: "A", units: 1, price: 1)
         XCTAssert(trader.account.marketOrdersCount > 0)
     }

@@ -22,15 +22,17 @@ class TickCache: NSObject, Publisher {
     private var subscription: TickCacheSubscription?
     
     private var cancelled = false
+    var mutex = pthread_mutex_t()
 
     func receive<S>(subscriber: S) where S : Subscriber, Failure == S.Failure, Output == S.Input {
         self.sub = AnySubscriber(subscriber)
-        subscription = TickCacheSubscription(combineIdentifier: CombineIdentifier(), cache: self)
+        subscription = TickCacheSubscription(combineIdentifier: CombineIdentifier(), cache: self, mutex: &mutex)
         subscriber.receive(subscription: subscription!)
         start()
     }
     
     private func start() {
+        pthread_mutex_init(&mutex, nil)
         let connection = NSXPCConnection(machServiceName: "au.com.itroja.TickTackXPC")
         connection.remoteObjectInterface = NSXPCInterface(with: TickCacheXPCProtocol.self)
         connection.resume()
@@ -40,28 +42,35 @@ class TickCache: NSObject, Publisher {
         } as? TickCacheXPCProtocol
 
         service!.getTicks { (aData) in
-                    aData!.withUnsafeBytes({ ptr in
-                        let i = ptr.bindMemory(to: FlatPrice.self)
-                        var bytes = i.enumerated().makeIterator()
-                        while let byte = bytes.next() {
-                            if self.cancelled { break }
-                            let price = byte.element
-                            _ = self.sub?.receive(price)
-                        }
-                    })
+            var notCancelled = true
+            aData!.withUnsafeBytes({ ptr in
+                let i = ptr.bindMemory(to: FlatPrice.self)
+                var bytes = i.enumerated().makeIterator()
+                while notCancelled, let byte = bytes.next() {
+                    pthread_mutex_lock(&self.mutex)
+                    notCancelled = !self.cancelled
+                    pthread_mutex_unlock(&self.mutex)
+                    let price = byte.element
+                    _ = self.sub?.receive(price)
+                }
+            })
             _ = self.sub?.receive(completion: .finished)
         }
     }
     
     private struct TickCacheSubscription: Subscription {
+        
         let combineIdentifier: CombineIdentifier
         weak var cache: TickCache?
-
+        let mutex:UnsafeMutablePointer<pthread_mutex_t>
+        
         func request(_ demand: Subscribers.Demand) {
         }
 
         func cancel() {
+            pthread_mutex_lock(mutex)
             cache?.cancelled = true
+            pthread_mutex_unlock(mutex)
         }
     }
 }

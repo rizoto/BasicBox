@@ -15,7 +15,10 @@ enum TradeState {
 
 struct Trade {
     let instrument: String
-    let units: Decimal // + long; - short
+    let units: Double // + long; - short
+    let price: Double
     let openTime: Date
+    var closeTime: Date?
+    var closePrice: Double?
     var state: TradeState
 }

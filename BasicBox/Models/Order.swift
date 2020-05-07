@@ -13,11 +13,17 @@ enum OrderType {
     case limit
 }
 
+enum OrderState {
+    case pending
+    case filled
+}
+
 struct Order {
     let instrument: String
-    let units: Decimal
-    let requestPrice: Decimal
+    let units: Double
+    let requestPrice: Double
     let orderType: OrderType
-    var openTime: Date
+    let openTime: Date
+    var orderState: OrderState
 }
 

@@ -21,6 +21,10 @@
 		70C3E74A245E581600E958EE /* Pricing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C3E745245E581600E958EE /* Pricing.swift */; };
 		70C3E74D245E581600E958EE /* Trade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C3E748245E581600E958EE /* Trade.swift */; };
 		70C3E74F245E589600E958EE /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C3E74E245E589600E958EE /* Account.swift */; };
+		70E805D62462868C003E80DD /* StrategyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E805D52462868C003E80DD /* StrategyTests.swift */; };
+		70E805D824628C76003E80DD /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E805D724628C76003E80DD /* AccountTests.swift */; };
+		70E805DA2462D740003E80DD /* OrderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E805D92462D740003E80DD /* OrderTests.swift */; };
+		70E805DC2463BFCC003E80DD /* ScalpingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E805DB2463BFCC003E80DD /* ScalpingStrategy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +58,10 @@
 		70C3E745245E581600E958EE /* Pricing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pricing.swift; path = BasicBox/Models/Pricing.swift; sourceTree = SOURCE_ROOT; };
 		70C3E748245E581600E958EE /* Trade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Trade.swift; path = BasicBox/Models/Trade.swift; sourceTree = SOURCE_ROOT; };
 		70C3E74E245E589600E958EE /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = Models/Account.swift; sourceTree = "<group>"; };
+		70E805D52462868C003E80DD /* StrategyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyTests.swift; sourceTree = "<group>"; };
+		70E805D724628C76003E80DD /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
+		70E805D92462D740003E80DD /* OrderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTests.swift; sourceTree = "<group>"; };
+		70E805DB2463BFCC003E80DD /* ScalpingStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalpingStrategy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,9 +127,12 @@
 		70B57DDE245C2728005DA838 /* BasicBoxTests */ = {
 			isa = PBXGroup;
 			children = (
+				70E805D92462D740003E80DD /* OrderTests.swift */,
+				70E805D724628C76003E80DD /* AccountTests.swift */,
 				70B57DDF245C2728005DA838 /* BasicBoxTests.swift */,
 				70B57E02245C95A0005DA838 /* TickCacheTests.swift */,
 				70B57DFC245C68D2005DA838 /* TraderTests.swift */,
+				70E805D52462868C003E80DD /* StrategyTests.swift */,
 				70B57DE1245C2728005DA838 /* Info.plist */,
 			);
 			path = BasicBoxTests;
@@ -145,6 +156,7 @@
 				70B57DF7245C631D005DA838 /* AccountManager.swift */,
 				70B57DF8245C637B005DA838 /* Trader.swift */,
 				70B57E00245C7D35005DA838 /* TickCacheXPC.swift */,
+				70E805DB2463BFCC003E80DD /* ScalpingStrategy.swift */,
 			);
 			path = Trading;
 			sourceTree = "<group>";
@@ -165,6 +177,8 @@
 			dependencies = (
 			);
 			name = BasicBox;
+			packageProductDependencies = (
+			);
 			productName = BasicBox;
 			productReference = 70B57DC6245C2726005DA838 /* BasicBox.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +229,8 @@
 				Base,
 			);
 			mainGroup = 70B57DBD245C2726005DA838;
+			packageReferences = (
+			);
 			productRefGroup = 70B57DC7245C2726005DA838 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -258,6 +274,7 @@
 				70C3E74F245E589600E958EE /* Account.swift in Sources */,
 				70B57DCA245C2726005DA838 /* AppDelegate.swift in Sources */,
 				70B57E01245C7D35005DA838 /* TickCacheXPC.swift in Sources */,
+				70E805DC2463BFCC003E80DD /* ScalpingStrategy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,9 +282,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70E805DA2462D740003E80DD /* OrderTests.swift in Sources */,
+				70E805D62462868C003E80DD /* StrategyTests.swift in Sources */,
 				70B57DE0245C2728005DA838 /* BasicBoxTests.swift in Sources */,
 				70B57DFD245C68D2005DA838 /* TraderTests.swift in Sources */,
 				70B57E03245C95A0005DA838 /* TickCacheTests.swift in Sources */,
+				70E805D824628C76003E80DD /* AccountTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
