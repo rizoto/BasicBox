@@ -22,8 +22,8 @@ class StrategyTests: XCTestCase {
         }.eraseToAnyPublisher()
         let strategy = BasicStrategy4UnitTest(instrument: aud_usd, endOf: {
             expectation.fulfill()
-        }, ticks: cancellable)
-        let trader = Trader(account: Account(hedgingEnabled: true))
+        })
+        let trader = Trader(account: Account(hedgingEnabled: true), ticks: cancellable)
         XCTAssert(trader.account.marketOrdersCount == 0)
         trader.runStrategy(strategy: strategy)
         wait(for: [expectation], timeout: 1)
@@ -34,10 +34,10 @@ class StrategyTests: XCTestCase {
         let expectation = XCTestExpectation(description: self.debugDescription)
         let aud_usd = String("AUD_USD        ".prefix(10))
         let cancellable = TickCache().eraseToAnyPublisher()
-        let trader = Trader(account: Account(hedgingEnabled: true))
+        let trader = Trader(account: Account(hedgingEnabled: true), ticks: cancellable)
         let strategy = ScalpingStrategy(instrument: aud_usd, endOf: {
             expectation.fulfill()
-        }, ticks: cancellable)
+        })
         trader.runStrategy(strategy: strategy)
         wait(for: [expectation], timeout: 60)
     }

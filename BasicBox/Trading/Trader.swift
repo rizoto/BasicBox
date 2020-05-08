@@ -10,7 +10,6 @@ import Foundation
 import Combine
 
 protocol Strategy {
-    var ticks: AnyPublisher <FlatPrice, Error> {get set}
     var instrument: String {get set}
     var endOf: () -> Void {get set}
     func tick(price: FlatPrice, account: Account) -> Account
@@ -24,15 +23,16 @@ protocol Trading {
 class Trader {
     var account: Account
     var set = Set<AnyCancellable>()
-    init(account: Account) {
+    var ticks: AnyPublisher <FlatPrice, Error>
+    init(account: Account, ticks: AnyPublisher <FlatPrice, Error> = Empty<FlatPrice, Error>().eraseToAnyPublisher()) {
         self.account = account
+        self.ticks = ticks
     }
 }
 
 struct BasicStrategy4UnitTest: Strategy {
     internal var instrument: String
     internal var endOf: () -> Void
-    internal var ticks: AnyPublisher<FlatPrice, Error>
     
     func tick(price: FlatPrice, account: Account) -> Account {
         _ = account.createMarketOrderRequest(instrument: price.instrument, units: 1, price: Double(price.price))
@@ -46,7 +46,7 @@ extension Trader: Trading {
     }
     
     func runStrategy(strategy: Strategy) {
-        let sub = strategy.ticks
+        let sub = ticks
             .filter { price -> Bool in
                 price.instrument == strategy.instrument && price.tradeable }
             .reduce(account, { (account, price) -> Account in
