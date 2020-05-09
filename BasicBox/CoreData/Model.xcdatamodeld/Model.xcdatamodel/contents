@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Candle" representedClassName="Candle_dto" syncable="YES" codeGenerationType="class">
+        <attribute name="a_c" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="a_h" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="a_l" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="a_o" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="b_c" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="b_h" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="b_l" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="b_o" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="c_hash" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="complete" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="volume" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="candleBA" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CandleBA" inverseName="candles" inverseEntity="CandleBA"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="c_hash"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="CandleBA" representedClassName="CandleBA_dto" syncable="YES" codeGenerationType="class">
+        <attribute name="from" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="granularity" attributeType="String"/>
+        <attribute name="instrument" attributeType="String"/>
+        <attribute name="to" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="candles" toMany="YES" deletionRule="Nullify" destinationEntity="Candle" inverseName="candleBA" inverseEntity="Candle" versionHashModifier="2"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="granularity"/>
+                <constraint value="instrument"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <elements>
+        <element name="Candle" positionX="-63" positionY="-18" width="128" height="238"/>
+        <element name="CandleBA" positionX="-334.5859375" positionY="86.75390625" width="128" height="118"/>
+    </elements>
+</model>
