@@ -20,7 +20,6 @@ class BasicBoxTests: XCTestCase {
     }
 
     func testExample() throws {
-        _ = Trader(account: Account(hedgingEnabled: true))
     }
 
     func testPerformanceExample() throws {
