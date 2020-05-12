@@ -10,11 +10,14 @@ import SwiftUI
 
 struct NavigationDetailView: View {
     let instrument: String
+    @ObservedObject var viewModel = DetailViewViewModel()
     var body: some View {
         GeometryReader {_ in
             VStack {
                 Text(self.instrument)
-                Button("Run",action: {helper().run_db()})
+                Text(String(self.viewModel.candles.count))
+                Button("Run",action: {self.viewModel.fetchInstrument(instrument: self.instrument)})
+                CandleBarChartView(candles: self.viewModel.graphDataSource)
             }
         }
     }

@@ -12,6 +12,20 @@ struct Candle: Encodable, Decodable {
         let c: String
     }
 }
+
+struct CandleD {
+    let complete: Bool
+    let volume: Int
+    let time: Date
+    let bid : BidAsk
+    let ask: BidAsk
+    struct BidAsk {
+        let o: Double
+        let h: Double
+        let l: Double
+        let c: Double
+    }
+}
     
 struct CandlesBA: Encodable, Decodable {
     let instrument: String

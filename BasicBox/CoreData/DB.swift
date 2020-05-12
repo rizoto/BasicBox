@@ -52,6 +52,9 @@ func checkOrCreatePath(path: URL) -> Bool {
 }
 
 func skipDownloaded(from: String, instrument: String, granularity: String) -> String {
+    if instrument.isEmpty {
+        return from
+    }
     guard let url = Bundle.main.url(forResource: "Model", withExtension:"momd") else {return ""}
     do {
         let moc = try db().open(forEnv: "Live_"+granularity, modelURL: url)
@@ -61,7 +64,8 @@ func skipDownloaded(from: String, instrument: String, granularity: String) -> St
         if cBA1.count == 1 && cBA1.first!.to! > from.toDate  {
             return convertDate(date: cBA1.first!.to!)
         }
-    } catch  {
+    } catch let error {
+        print(error.localizedDescription)
     }
     return from
 }
