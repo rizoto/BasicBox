@@ -29,6 +29,8 @@
 		70E806F624670187003E80DD /* helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E806F524670187003E80DD /* helpers.swift */; };
 		70E806F824696878003E80DD /* DetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E806F724696878003E80DD /* DetailViewViewModel.swift */; };
 		70E806FB246A5A5F003E80DD /* CandleBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E806FA246A5A5F003E80DD /* CandleBarChartView.swift */; };
+		70E8070C246ACCA7003E80DD /* TALib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70E80704246ACC79003E80DD /* TALib.framework */; };
+		70E8070D246ACCA7003E80DD /* TALib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 70E80704246ACC79003E80DD /* TALib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +41,49 @@
 			remoteGlobalIDString = 70B57DC5245C2726005DA838;
 			remoteInfo = BasicBox;
 		};
+		70E80703246ACC79003E80DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 70E806FC246ACC79003E80DD /* TALib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8D07F2C80486CC7A007CD1D0;
+			remoteInfo = TALib;
+		};
+		70E80705246ACC79003E80DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 70E806FC246ACC79003E80DD /* TALib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CCF3214B0BA7887D0014ABA6;
+			remoteInfo = "Regression Tests";
+		};
+		70E80707246ACC79003E80DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 70E806FC246ACC79003E80DD /* TALib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 70E806AE246665C5003E80DD;
+			remoteInfo = "test-ta++";
+		};
+		70E80709246ACC79003E80DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 70E806FC246ACC79003E80DD /* TALib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 70E806BE246669B2003E80DD;
+			remoteInfo = "test-swift";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		70E8070E246ACCA8003E80DD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				70E8070D246ACCA7003E80DD /* TALib.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		70B57DC6245C2726005DA838 /* BasicBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +112,7 @@
 		70E806F524670187003E80DD /* helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = helpers.swift; sourceTree = "<group>"; };
 		70E806F724696878003E80DD /* DetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewViewModel.swift; path = BasicBox/ViewModels/DetailViewViewModel.swift; sourceTree = SOURCE_ROOT; };
 		70E806FA246A5A5F003E80DD /* CandleBarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandleBarChartView.swift; sourceTree = "<group>"; };
+		70E806FC246ACC79003E80DD /* TALib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TALib.xcodeproj; path = "../ta-lib/c/ide/xcode/TALib/TALib.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +121,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70E806992465A50E003E80DD /* KeychainAccess in Frameworks */,
+				70E8070C246ACCA7003E80DD /* TALib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,9 +138,11 @@
 		70B57DBD245C2726005DA838 = {
 			isa = PBXGroup;
 			children = (
+				70E806FC246ACC79003E80DD /* TALib.xcodeproj */,
 				70B57DC8245C2726005DA838 /* BasicBox */,
 				70B57DDE245C2728005DA838 /* BasicBoxTests */,
 				70B57DC7245C2726005DA838 /* Products */,
+				70E8070B246ACCA7003E80DD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -202,6 +250,24 @@
 			path = Charts;
 			sourceTree = "<group>";
 		};
+		70E806FD246ACC79003E80DD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				70E80704246ACC79003E80DD /* TALib.framework */,
+				70E80706246ACC79003E80DD /* Regression Tests */,
+				70E80708246ACC79003E80DD /* test-ta++ */,
+				70E8070A246ACC79003E80DD /* test-swift */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		70E8070B246ACCA7003E80DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -212,6 +278,7 @@
 				70B57DC2245C2726005DA838 /* Sources */,
 				70B57DC3245C2726005DA838 /* Frameworks */,
 				70B57DC4245C2726005DA838 /* Resources */,
+				70E8070E246ACCA8003E80DD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -276,6 +343,12 @@
 			);
 			productRefGroup = 70B57DC7245C2726005DA838 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 70E806FD246ACC79003E80DD /* Products */;
+					ProjectRef = 70E806FC246ACC79003E80DD /* TALib.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				70B57DC5245C2726005DA838 /* BasicBox */,
@@ -283,6 +356,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		70E80704246ACC79003E80DD /* TALib.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = TALib.framework;
+			remoteRef = 70E80703246ACC79003E80DD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		70E80706246ACC79003E80DD /* Regression Tests */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = "Regression Tests";
+			remoteRef = 70E80705246ACC79003E80DD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		70E80708246ACC79003E80DD /* test-ta++ */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = "test-ta++";
+			remoteRef = 70E80707246ACC79003E80DD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		70E8070A246ACC79003E80DD /* test-swift */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = "test-swift";
+			remoteRef = 70E80709246ACC79003E80DD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		70B57DC4245C2726005DA838 /* Resources */ = {
@@ -483,6 +587,10 @@
 				DEVELOPMENT_TEAM = DB887LPNL4;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				HEADER_SEARCH_PATHS = (
+					"../ta-lib/c/src/ta_common/",
+					"../ta-lib/c/include",
+				);
 				INFOPLIST_FILE = BasicBox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -491,6 +599,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.itroja.BasicBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "../ta-lib/c/ide/xcode/TALib/test-swift/TALib-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -506,6 +615,10 @@
 				DEVELOPMENT_TEAM = DB887LPNL4;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				HEADER_SEARCH_PATHS = (
+					"../ta-lib/c/src/ta_common/",
+					"../ta-lib/c/include",
+				);
 				INFOPLIST_FILE = BasicBox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -514,6 +627,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.itroja.BasicBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "../ta-lib/c/ide/xcode/TALib/test-swift/TALib-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
