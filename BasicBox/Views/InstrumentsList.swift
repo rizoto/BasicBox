@@ -10,9 +10,10 @@ import SwiftUI
 
 struct InstrumentsList: View {
     @Binding var selectedRow: String?
-    @ObservedObject var instruments = InstrumentsViewModel()
+//    @ObservedObject var instruments = InstrumentsViewModel()
+    @EnvironmentObject private var data: DataManager
     var body: some View {
-        List(instruments.instruments, id: \.self,selection: $selectedRow) { instrument in
+        List(data.instruments.allSorted, id: \.self,selection: $selectedRow) { instrument in
             InstrumentRow(instrument: instrument)
         }
     }

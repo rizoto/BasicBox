@@ -17,5 +17,6 @@ struct ContentView: View {
                 NavigationDetailView(instrument: selectedRow!)
             }
         }.frame(minWidth: 700, minHeight: 400)
+        .background(Color(NSColor.init(hex: "#254F6EFF") ?? NSColor.blue))
     }
 }

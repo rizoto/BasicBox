@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7033A2FF2472A5CC0029ED63 /* UIColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7033A2FE2472A5CC0029ED63 /* UIColorHex.swift */; };
+		7033A3032472C1470029ED63 /* Instruments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7033A3022472C1470029ED63 /* Instruments.swift */; };
+		7033A30724740AAA0029ED63 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7033A30624740AAA0029ED63 /* DataManager.swift */; };
 		70B57DCA245C2726005DA838 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B57DC9245C2726005DA838 /* AppDelegate.swift */; };
 		70B57DCC245C2726005DA838 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B57DCB245C2726005DA838 /* ContentView.swift */; };
 		70B57DCE245C2728005DA838 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70B57DCD245C2728005DA838 /* Assets.xcassets */; };
@@ -86,6 +89,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7033A2FE2472A5CC0029ED63 /* UIColorHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorHex.swift; sourceTree = "<group>"; };
+		7033A3022472C1470029ED63 /* Instruments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instruments.swift; sourceTree = "<group>"; };
+		7033A30624740AAA0029ED63 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		70B57DC6245C2726005DA838 /* BasicBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70B57DC9245C2726005DA838 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70B57DCB245C2726005DA838 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -135,6 +141,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7033A2F92472A5A70029ED63 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7033A2FE2472A5CC0029ED63 /* UIColorHex.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
 		70B57DBD245C2726005DA838 = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +209,7 @@
 		70E806CF2466BB2F003E80DD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7033A2F92472A5A70029ED63 /* extensions */,
 				70E806F9246A5A53003E80DD /* Charts */,
 				70B57DCB245C2726005DA838 /* ContentView.swift */,
 				70E806D02466BB49003E80DD /* ConfigView.swift */,
@@ -210,6 +225,7 @@
 			children = (
 				70E80695246592D0003E80DD /* TokenManager.swift */,
 				70E806F32466FBC8003E80DD /* Network.swift */,
+				7033A30624740AAA0029ED63 /* DataManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -237,6 +253,7 @@
 		70E806EE2466DDE3003E80DD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7033A3022472C1470029ED63 /* Instruments.swift */,
 				70E806EF2466DDFF003E80DD /* Candles.swift */,
 			);
 			path = Models;
@@ -418,6 +435,9 @@
 				70B57DCC245C2726005DA838 /* ContentView.swift in Sources */,
 				70E806F42466FBC8003E80DD /* Network.swift in Sources */,
 				70E806F02466DDFF003E80DD /* Candles.swift in Sources */,
+				7033A2FF2472A5CC0029ED63 /* UIColorHex.swift in Sources */,
+				7033A3032472C1470029ED63 /* Instruments.swift in Sources */,
+				7033A30724740AAA0029ED63 /* DataManager.swift in Sources */,
 				70E80696246592D0003E80DD /* TokenManager.swift in Sources */,
 				70E806EA2466D913003E80DD /* DB.swift in Sources */,
 				70E806E42466CAF8003E80DD /* NavigationDetailView.swift in Sources */,

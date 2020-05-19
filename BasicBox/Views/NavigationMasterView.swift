@@ -19,13 +19,15 @@ struct NavigationMasterView: View {
                 }) {
                     Text("Config")
                 }.popover(isPresented: $showingConfig) {
-                    ConfigView(isPresented: self.$showingConfig)
+                    ConfigView(isPresented: self.$showingConfig).background(Color(NSColor.init(hex: "#254F6EFF") ?? NSColor.blue))
                 }.padding()
                    
                 Spacer()
             }
             InstrumentsList(selectedRow: $selectedRow).listStyle(SidebarListStyle())
             Spacer()
-        }.frame(minWidth: 150, maxWidth: 150)
+        }.frame(minWidth: 160, maxWidth: 160)
+        .background(Color(NSColor.init(hex: "#254F6EFF") ?? NSColor.blue))
     }
 }
+

@@ -9,6 +9,15 @@
 import Combine
 import SwiftUI
 
-final class InstrumentsViewModel: ObservableObject {
-    @Published var instruments = ["AUD_USD","EUR_USD","SPX500_USD","SPX500_USD","AUD_NZD","AU200_AUD","USD_JPY","GBP_CAD","BCO_USD","WTICO_USD","EUR_CHF","GBP_NZD","USD_CHF","CORN_USD","EUR_NOK","CHF_JPY","GBP_CHF","XAU_USD"].sorted()
+class InstrumentsViewModel {
+    internal var set = Set<AnyCancellable>()
+    init(_ loaded: inout Bool) {
+        getInstruments(&loaded)
+    }
+    var instruments = Instruments(instruments: Array<Instruments.Instrument>())
+    func getInstruments(_ loaded: inout Bool) {
+        let sub = Network().instruments().assign(to: \InstrumentsViewModel.instruments, on: self)
+        sub.store(in: &set)
+        loaded = true
+    }
 }
